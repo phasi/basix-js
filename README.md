@@ -7,6 +7,9 @@ This framework is under (slow) development. All versions below 1.0 are still dev
 
 Basix JS FW is meant to cut developing time and to modify html elements easily!
 
+https://www.npmjs.com/package/basix-js-fw ( npm install basix-js-fw )
+https://github.com/phasi/basix-js
+
 ## Get started ##
 
 - Get started by reading the examples.html in project root.
