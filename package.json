@@ -1,8 +1,8 @@
 {
   "name": "basix-js-fw",
-  "version": "0.0.8",
-  "description": "Basix JS FW is meant to cut developing time and to modify html elements easily!",
-  "main": "basix-js-fw.js",
+  "version": "0.9.5",
+  "description": "basix-js is meant for cutting developing time and for modifying the html DOM elements easier!",
+  "main": "basix.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
