@@ -36,7 +36,7 @@ basixJS.prototype.setInnerText = function(id, value) {
 /* Creating, modifying, replacing and deleting elements */
 
 // this.initElement(type, text, newElementId) // text is optional
-// will be used by BXCreateElement and replaceElement
+// will be used by bx.createElement and bx.replaceElement
 basixJS.prototype.initElement = function(type, text, newElementId) {
     var bxElement = document.createElement(type);
     bxElement.id = newElementId;
@@ -47,8 +47,8 @@ basixJS.prototype.initElement = function(type, text, newElementId) {
     return bxElement;
 };
 
-// createElement(id, type, text, newElementId)
-basixJS.prototype.createElement = function(id, type, text, newElementId) {
+// createElement(parentId, type, text, newElementId)
+basixJS.prototype.createElement = function(parentId, type, text, newElementId) {
     if (text != undefined || text != null || text != "") {
     var bxElement = this.initElement(type, text, newElementId);
     } else {
@@ -58,14 +58,14 @@ basixJS.prototype.createElement = function(id, type, text, newElementId) {
     this.getID(id).appendChild(bxElement); 
 };
 
-// removeElement(id, childId)
-basixJS.prototype.removeElement = function(id, childId) {
+// removeElement(parentId, childId)
+basixJS.prototype.removeElement = function(parentId, childId) {
     var bxElement = this.getID(id);
     bxElement.removeChild(this.getID(childId));
 };
 
 // replaceElement(id, childId, type, text, newElementId) 
-basixJS.prototype.replaceElement = function(id, childId, type, text, newElementId) {
+basixJS.prototype.replaceElement = function(parentId, childId, type, text, newElementId) {
     if (text == undefined && newElementId == undefined) {
         var bxElement = this.initElement(type);
     } else if (text == undefined) {
@@ -338,7 +338,7 @@ basixJS.prototype.httpPost = function(url, data, successFunction) {
  * s.height (required)
  * s.className (optional)
  * s.position (optional)
- * s.text (optional) # parent element div (not paragraph) as created with BXCreateElement()
+ * s.text (optional) # parent element div (not paragraph) as created with bx.createElement()
  * s.border (optional)
  * s.boxShadow (optional)
  * s.borderRadius (optional)
