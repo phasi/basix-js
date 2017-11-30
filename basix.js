@@ -55,7 +55,7 @@ basixJS.prototype.createElement = function(parentId, type, text, newElementId) {
     var bxElement = this.initElement(type, undefined, newElementId);
     }
 
-    this.getID(id).appendChild(bxElement); 
+    this.getID(parentId).appendChild(bxElement); 
 };
 
 // removeElement(parentId, childId)
