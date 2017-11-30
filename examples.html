@@ -32,6 +32,35 @@
 	});
 </script>
 
+<!--
+			Example 21 - HTTP Requests
+		// bx.httpGet(url, successFunction) returns JSON object or array-->
+
+		<p><b>Test 21 HTTP GET (Returns JSON): </b></p>
+		<div id="test21">
+		 Click the button to try!
+		</div>
+		<button id="runtest21">Run test</button>
+
+		<script>	
+			// Add eventlistener for run button
+			bx.addEventListener("runtest21", "click", function() {
+			
+				// Get our JSON Object and handle response
+				bx.httpGet("https://jsonplaceholder.typicode.com/posts/1", function(response){
+				// Log response to console
+				console.log(response);
+				// Create heading and paragraph for response
+				bx.createElement("test21", "h3", response.title, "test21-heading");
+				bx.createElement("test21", "p", response.body, "test21-body");
+				});
+			});
+
+			bx.animateFadeIn("test21", "5");
+			
+
+		</script>
+
 </body>
 
 </html>
