@@ -60,7 +60,7 @@ basixJS.prototype.createElement = function(parentId, type, text, newElementId) {
 
 // removeElement(parentId, childId)
 basixJS.prototype.removeElement = function(parentId, childId) {
-    var bxElement = this.getID(id);
+    var bxElement = this.getID(parentId);
     bxElement.removeChild(this.getID(childId));
 };
 
@@ -76,7 +76,7 @@ basixJS.prototype.replaceElement = function(parentId, childId, type, text, newEl
         var bxElement = this.initElement(type, text, newElementId);
     }
     var bxChildElement = this.getID(childId);
-    this.getID(id).replaceChild(bxElement, bxChildElement);
+    this.getID(parentId).replaceChild(bxElement, bxChildElement);
 }
 
 /** Classes */
