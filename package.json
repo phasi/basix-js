@@ -1,6 +1,6 @@
 {
   "name": "basix-js-fw",
-  "version": "0.9.5",
+  "version": "0.9.6",
   "description": "basix-js is meant for cutting developing time and for modifying the html DOM elements easier!",
   "main": "basix.js",
   "scripts": {
