@@ -47,7 +47,7 @@ Initialize basix-js by adding the following into page body:
 Replace elementID with HTML-element id. For example:
 **JS:**
 ```
-bx.setElementText("elementID", "Sample text");
+bx.setInnerText("elementID", "Sample text");
 ```
 **And HTML:**
 ```
@@ -130,7 +130,7 @@ bx.replaceElement(id, childId, type, text, newElementId);
 			// Create button
 			bx.createElement("test18", "button", "Sort!", "test18sortbutton");
 			// Add eventlistener for it
-			bx.AddEventListener("test18sortbutton", "click", test18doReplace);
+			bx.addEventListener("test18sortbutton", "click", test18doReplace);
 
 			// This is where we do the actual sorting in this example
 			function test18doReplace() {
@@ -164,7 +164,7 @@ bx.replaceElement(id, childId, type, text, newElementId);
 
 		<script>	
 			// Add eventlistener for run button
-			bx.AddEventListener("runtest21", "click", function() {
+			bx.addEventListener("runtest21", "click", function() {
 
 				// Get our JSON Object and handle response
 				bx.httpGet("https://jsonplaceholder.typicode.com/posts/1", function(response){
