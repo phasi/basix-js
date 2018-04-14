@@ -24,6 +24,12 @@
 </div>
 
 <script type="text/javascript">
+	bx.animateFadeIn("pagetitle", "10");
+	bx.animateFadeIn("pagesubtitle", "35");
+	bx.animateFadeIn("testrun", "55");
+</script>
+
+<script type="text/javascript">
 
 	bx.addEventListener("testrun", "click", function() {
 		bx.replaceElement("torso", "testrun", "h1", "basix-js WORKS!", "testrun");
@@ -36,7 +42,7 @@
 			Example 21 - HTTP Requests
 		// bx.httpGet(url, successFunction) returns JSON object or array-->
 
-		<p><b>Test 21 HTTP GET (Returns JSON): </b></p>
+		<p id="21pg"><b>Test 21 HTTP GET (Returns JSON): </b></p>
 		<div id="test21">
 		 Click the button to try!
 		</div>
@@ -56,7 +62,8 @@
 				});
 			});
 
-			bx.animateFadeIn("test21", "5");
+			bx.animateFadeIn("test21", "60");
+			bx.animateFadeIn("21pg", "75");
 			
 
 		</script>

@@ -259,7 +259,7 @@ basixJS.prototype.checkVisible = function(id) {
 // animateFadeIn(id, length)
 basixJS.prototype.animateFadeIn = function(id, length) {
 
-        bxElement = this.getID(id);
+        var bxElement = this.getID(id);
         var count = 0;
         var interval = setInterval(frame, length);
         function frame() {
@@ -275,7 +275,7 @@ basixJS.prototype.animateFadeIn = function(id, length) {
 // animateFadeOut(id, length)
 basixJS.prototype.animateFadeOut = function(id, length) {
 
-        bxElement = this.getID(id);
+        var bxElement = this.getID(id);
         var count = 100;
         var interval = setInterval(frame, length);
         function frame() {
