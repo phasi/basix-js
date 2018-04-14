@@ -293,7 +293,7 @@ basixJS.prototype.animateFadeOut = function(id, length) {
 /** HTTP Requests */
 
 // httpGet(url, function) returns JSON object or array
-basixJS.prototype.httpGet = function(url, successFunction) {
+basixJS.prototype.httpGet = function(url, successCallback) {
     try {
         var xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
@@ -301,7 +301,7 @@ basixJS.prototype.httpGet = function(url, successFunction) {
         function processRequest(e) {
             if (xhr.readyState == 4 && xhr.status == 200) {
                 var bxResponse = JSON.parse(xhr.responseText); //xhr.responseText;
-                successFunction(bxResponse);
+                successCallback(bxResponse);
             }
         }
         xhr.send(null);
@@ -310,7 +310,7 @@ basixJS.prototype.httpGet = function(url, successFunction) {
     }
 }
 // httpPost(url, function) returns JSON object or array
-basixJS.prototype.httpPost = function(url, data, successFunction) {
+basixJS.prototype.httpPost = function(url, data, successCallback) {
     try {
         var xhr = new XMLHttpRequest();
         xhr.open('POST', url, true);
@@ -318,7 +318,7 @@ basixJS.prototype.httpPost = function(url, data, successFunction) {
         function processRequest(e) {
             if (xhr.readyState == 4 && xhr.status == 200) {
                 var bxResponse = JSON.parse(xhr.responseText); //xhr.responseText;
-                successFunction(bxResponse);
+                successCallback(bxResponse);
             }
         }
         xhr.send(data);
