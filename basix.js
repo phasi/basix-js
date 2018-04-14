@@ -1,4 +1,4 @@
-var basixJS = function() {
+var basixJS = function () {
 
 };
 
@@ -7,15 +7,15 @@ var basixJS = function() {
 
 
 // getID(id)
-basixJS.prototype.getID = function(id) {
-	return document.getElementById(id);
+basixJS.prototype.getID = function (id) {
+    return document.getElementById(id);
 };
 // getInnerHTML(id)
-basixJS.prototype.getInnerHTML = function(id) {
+basixJS.prototype.getInnerHTML = function (id) {
     return this.getID(id).innerHTML;
 };
 // getInnerText(id)
-basixJS.prototype.getInnerText = function(id) {
+basixJS.prototype.getInnerText = function (id) {
     return this.getID(id).innerText;
 };
 
@@ -24,12 +24,12 @@ basixJS.prototype.getInnerText = function(id) {
 
 
 // setInnerHTML(id, value)
-basixJS.prototype.setInnerHTML = function(id, value) {
+basixJS.prototype.setInnerHTML = function (id, value) {
     this.getID(id).innerHTML = value;
 };
 
 // setInnerText(id, value)
-basixJS.prototype.setInnerText = function(id, value) {
+basixJS.prototype.setInnerText = function (id, value) {
     this.getID(id).innerText = value;
 };
 
@@ -37,7 +37,7 @@ basixJS.prototype.setInnerText = function(id, value) {
 
 // this.initElement(type, text, newElementId) // text is optional
 // will be used by bx.createElement and bx.replaceElement
-basixJS.prototype.initElement = function(type, text, newElementId) {
+basixJS.prototype.initElement = function (type, text, newElementId) {
     var bxElement = document.createElement(type);
     bxElement.id = newElementId;
     if (text != undefined) {
@@ -48,24 +48,24 @@ basixJS.prototype.initElement = function(type, text, newElementId) {
 };
 
 // createElement(parentId, type, text, newElementId)
-basixJS.prototype.createElement = function(parentId, type, text, newElementId) {
+basixJS.prototype.createElement = function (parentId, type, text, newElementId) {
     if (text != undefined || text != null || text != "") {
-    var bxElement = this.initElement(type, text, newElementId);
+        var bxElement = this.initElement(type, text, newElementId);
     } else {
-    var bxElement = this.initElement(type, undefined, newElementId);
+        var bxElement = this.initElement(type, undefined, newElementId);
     }
 
-    this.getID(parentId).appendChild(bxElement); 
+    this.getID(parentId).appendChild(bxElement);
 };
 
 // removeElement(parentId, childId)
-basixJS.prototype.removeElement = function(parentId, childId) {
+basixJS.prototype.removeElement = function (parentId, childId) {
     var bxElement = this.getID(parentId);
     bxElement.removeChild(this.getID(childId));
 };
 
 // replaceElement(id, childId, type, text, newElementId) 
-basixJS.prototype.replaceElement = function(parentId, childId, type, text, newElementId) {
+basixJS.prototype.replaceElement = function (parentId, childId, type, text, newElementId) {
     if (text == undefined && newElementId == undefined) {
         var bxElement = this.initElement(type);
     } else if (text == undefined) {
@@ -81,31 +81,31 @@ basixJS.prototype.replaceElement = function(parentId, childId, type, text, newEl
 
 /** Classes */
 
-basixJS.prototype.getClass = function(className) {
+basixJS.prototype.getClass = function (className) {
     return document.getElementsByClassName(className);
 }
 
 // setClass(id)
-basixJS.prototype.setClass = function(id, className) {
+basixJS.prototype.setClass = function (id, className) {
     this.getID(id).className = className;
 }
 // addClass(id)
-basixJS.prototype.addClass = function(id, className) {
+basixJS.prototype.addClass = function (id, className) {
     this.getID(id).className += " " + className;
 }
 
 /** Text and background colors */
 
 // setColor(id, value)
-basixJS.prototype.setColor = function(id, value) {
+basixJS.prototype.setColor = function (id, value) {
     this.getID(id).style.color = value;
 }
 // setBGColor(id, value)
-basixJS.prototype.setBGColor = function(id, value) {
+basixJS.prototype.setBGColor = function (id, value) {
     this.getID(id).style.backgroundColor = value;
 }
 // setBGImage(id, value)
-basixJS.prototype.setBGImage = function(id, value) {
+basixJS.prototype.setBGImage = function (id, value) {
     this.getID(id).style.backgroundImage = value;
 }
 
@@ -113,29 +113,29 @@ basixJS.prototype.setBGImage = function(id, value) {
 /** Borders, shadows and radiuses */
 
 // setBorder(id, value)
-basixJS.prototype.setBorder = function(id, value) {
+basixJS.prototype.setBorder = function (id, value) {
     this.getID(id).style.border = value;
 }
 // setBoxShadow(id, value)
-basixJS.prototype.setBoxShadow = function(id, value) {
+basixJS.prototype.setBoxShadow = function (id, value) {
     this.getID(id).style.boxShadow = value;
 }
 // setBorderRadius(id, value)
-basixJS.prototype.setBorderRadius = function(id, value) {
+basixJS.prototype.setBorderRadius = function (id, value) {
     this.getID(id).style.borderRadius = value;
 }
 
 /** Margins, paddings, positions */
 
 // setElementPosition(id, value)
-basixJS.prototype.setElementPosition = function(id, value) {
+basixJS.prototype.setElementPosition = function (id, value) {
     this.getID(id).style.position = value;
 }
 
 /** Sizes */
 
 // followSize(id, followId)
-basixJS.prototype.followSize = function(id, followId) {
+basixJS.prototype.followSize = function (id, followId) {
     var bxElement = this.getID(id);
     var bxFollowedElement = this.getID(followId);
     bxElement.style.height = bxFollowedElement.clientHeight + "px";
@@ -143,14 +143,14 @@ basixJS.prototype.followSize = function(id, followId) {
 }
 
 // followWidth(id, followId)
-basixJS.prototype.followWidth = function(id, followId) {
+basixJS.prototype.followWidth = function (id, followId) {
     var bxElement = this.getID(id);
     var bxFollowedElement = this.getID(followId);
     bxElement.style.width = bxFollowedElement.clientWidth + "px";
 }
 
 // followHeight(id, followId)
-basixJS.prototype.followHeight = function(id, followId) {
+basixJS.prototype.followHeight = function (id, followId) {
     var bxElement = this.getID(id);
     var bxFollowedElement = this.getID(followId);
     bxElement.style.height = bxFollowedElement.clientHeight + "px";
@@ -160,11 +160,11 @@ basixJS.prototype.followHeight = function(id, followId) {
 /** Visibility */
 
 // setVisibility(id, visibility) (manual: user needs to input visibility setting)
-basixJS.prototype.setVisibility = function(id, visibility) {
+basixJS.prototype.setVisibility = function (id, visibility) {
     this.getID(id).style.visibility = visibility;
 }
 // changeVisibility(id) (automatic: change from visible to hidden and vice versa)
-basixJS.prototype.changeVisibility = function(id) {
+basixJS.prototype.changeVisibility = function (id) {
     var bxElement = this.getID(id);
     switch (bxElement.style.visibility) {
         case "":
@@ -196,27 +196,23 @@ basixJS.prototype.changeVisibility = function(id) {
 /** Events */
 
 // addEventListener(id, event, callback, useCapture) (if id is "$doc" then addEventListener to whole document)
-basixJS.prototype.addEventListener = function(id, event, callback, useCapture) {
-    if (id != "$doc" && (useCapture == undefined || useCapture == null || useCapture == ""))
-    {
+basixJS.prototype.addEventListener = function (id, event, callback, useCapture) {
+    if (id != "$doc" && (useCapture == undefined || useCapture == null || useCapture == "")) {
         this.getID(id).addEventListener(event, callback);
     }
-    else if (id == "$doc" && (useCapture == undefined || useCapture == null || useCapture == ""))
-    {
+    else if (id == "$doc" && (useCapture == undefined || useCapture == null || useCapture == "")) {
         document.addEventListener(event, callback);
     }
-    else if (id == "$doc" && useCapture != null) 
-    {
+    else if (id == "$doc" && useCapture != null) {
         document.addEventListener(event, callback, useCapture);
     }
-    else
-    {
+    else {
         this.getID(id).addEventListener(event, callback, useCapture);
-    } 
+    }
 }
 
 // removeEventListener(id, event, callback)
-basixJS.prototype.removeEventListener = function(id, event, callback, useCapture) {
+basixJS.prototype.removeEventListener = function (id, event, callback, useCapture) {
     if (useCapture == undefined && id != "$doc") {
         this.getID(id).removeEventListener(event, callback);
     } else if (useCapture != undefined && id != "$doc") {
@@ -233,73 +229,67 @@ basixJS.prototype.removeEventListener = function(id, event, callback, useCapture
 /** Math */
 
 // sortIntArray(direction) (asc / desc)
-basixJS.prototype.sortIntArray = function(array, direction) {
-    if (direction == "asc")
-    {
-        array.sort(function(a, b){return a - b});
+basixJS.prototype.sortIntArray = function (array, direction) {
+    if (direction == "asc") {
+        array.sort(function (a, b) { return a - b });
         return array;
     }
-    else if (direction == "desc")
-    {
-        array.sort(function(a, b){return b - a});
+    else if (direction == "desc") {
+        array.sort(function (a, b) { return b - a });
         return array;
     }
 }
 // checkVisible(id) // Check whether the element is visible in the viewport or not
-basixJS.prototype.checkVisible = function(id) {
-  var bxElement = this.getID(id);
-  var rect = bxElement.getBoundingClientRect();
-  var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
-  return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
+basixJS.prototype.checkVisible = function (id) {
+    var bxElement = this.getID(id);
+    var rect = bxElement.getBoundingClientRect();
+    var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+    return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
 }
 
 
 /** Animations */
 
 // animateFadeIn(id, length)
-basixJS.prototype.animateFadeIn = function(id, length) {
+basixJS.prototype.animateFadeIn = function (id, length) {
 
-        var bxElement = this.getID(id);
-        var count = 0;
-        var interval = setInterval(frame, length);
-        function frame() {
-            if (count == 100) {
-                clearInterval(interval);
-            } else  {
-                count++;
-                var bxOpacity = (count / 100);
-                bxElement.style.opacity = bxOpacity;
-            }
+    var bxElement = this.getID(id);
+    var count = 0;
+    var interval = setInterval(frame, length);
+    function frame() {
+        if (count == 100) {
+            clearInterval(interval);
+        } else {
+            count++;
+            var bxOpacity = (count / 100);
+            bxElement.style.opacity = bxOpacity;
         }
+    }
 }
 // animateFadeOut(id, length)
-basixJS.prototype.animateFadeOut = function(id, length) {
+basixJS.prototype.animateFadeOut = function (id, length) {
 
-        var bxElement = this.getID(id);
-        var count = 100;
-        var interval = setInterval(frame, length);
-        function frame() {
-            if (count == 0) {
-                clearInterval(interval);
-            } else  {
-                count--;
-                var bxOpacity = (count / 100);
-                bxElement.style.opacity = bxOpacity;
-            }
+    var bxElement = this.getID(id);
+    var count = 100;
+    var interval = setInterval(frame, length);
+    function frame() {
+        if (count == 0) {
+            clearInterval(interval);
+        } else {
+            count--;
+            var bxOpacity = (count / 100);
+            bxElement.style.opacity = bxOpacity;
         }
+    }
 }
 
 
 /** HTTP Requests */
 
-// httpGet(url, function) returns JSON object or array
-basixJS.prototype.httpGet = function(url, headers, successCallback) {
+// httpGet(url, successCallback) returns JSON object or array
+basixJS.prototype.httpGet = function (url, successCallback) {
     try {
         var xhr = new XMLHttpRequest();
-            // for (let i = 0; i < headers.length; i++) {
-            //     xhr.setRequestHeader(i);
-            //     console.log(i);
-            // }
         xhr.open('GET', url, true);
         xhr.setRequestHeader("Accept", "application/json");
         xhr.onreadystatechange = processRequest;
@@ -315,7 +305,7 @@ basixJS.prototype.httpGet = function(url, headers, successCallback) {
     }
 }
 // httpPost(url, function) returns JSON object or array
-basixJS.prototype.httpPost = function(url, data, successCallback) {
+basixJS.prototype.httpPost = function (url, data, successCallback) {
     try {
         var xhr = new XMLHttpRequest();
         xhr.open('POST', url, true);
@@ -349,31 +339,31 @@ basixJS.prototype.httpPost = function(url, data, successCallback) {
  * s.borderRadius (optional)
  * 
  */
-basixJS.prototype.createBox = function(settings) {
+basixJS.prototype.createBox = function (settings) {
     this.createElement(settings.id, "div", settings.text, settings.boxId);
     this.getID(settings.boxId).style.width = settings.width;
     this.getID(settings.boxId).style.height = settings.height;
     if (settings.className != null) {
-    setClass(settings.boxId, settings.className);
+        setClass(settings.boxId, settings.className);
     }
     if (settings.position != null) {
-    setElementPosition(settings.boxId, settings.position);
+        setElementPosition(settings.boxId, settings.position);
     }
     if (settings.border != null) {
-    setBorder(settings.boxId, settings.border);
+        setBorder(settings.boxId, settings.border);
     }
     if (settings.boxShadow != null) {
-    setBoxShadow(settings.boxId, settings.boxShadow);
+        setBoxShadow(settings.boxId, settings.boxShadow);
     }
     if (settings.borderRadius != null) {
-    setBorderRadius(settings.boxId, settings.borderRadius);
+        setBorderRadius(settings.boxId, settings.borderRadius);
     }
 }
 
 /** Popups */
 
 // createPopup() (beta)
-basixJS.prototype.createPopup = function(url, name, specs, content) {
+basixJS.prototype.createPopup = function (url, name, specs, content) {
     var w = window.open(url, name, specs);
     w.document.write(content);
 }
