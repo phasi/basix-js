@@ -52,13 +52,19 @@
 			// Add eventlistener for run button
 			bx.addEventListener("runtest21", "click", function() {
 			
+				// Set headers
+				var headers = {
+					"Host":"localhost",
+					"Accept":"application/json"
+				};
 				// Get our JSON Object and handle response
-				bx.httpGet("https://jsonplaceholder.typicode.com/posts/1", function(response){
+				bx.httpGet("https://reqres.in/api/unknown/6", headers, function(response){
 				// Log response to console
 				console.log(response);
 				// Create heading and paragraph for response
-				bx.createElement("test21", "h3", response.title, "test21-heading");
-				bx.createElement("test21", "p", response.body, "test21-body");
+				bx.createElement("test21", "h3", response.data.name, "test21-heading");
+				bx.createElement("test21", "p", response.data.year, "test21-body");
+				bx.setColor("test21-heading", response.data.color);
 				});
 			});
 

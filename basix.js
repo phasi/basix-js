@@ -293,10 +293,15 @@ basixJS.prototype.animateFadeOut = function(id, length) {
 /** HTTP Requests */
 
 // httpGet(url, function) returns JSON object or array
-basixJS.prototype.httpGet = function(url, successCallback) {
+basixJS.prototype.httpGet = function(url, headers, successCallback) {
     try {
         var xhr = new XMLHttpRequest();
+            // for (let i = 0; i < headers.length; i++) {
+            //     xhr.setRequestHeader(i);
+            //     console.log(i);
+            // }
         xhr.open('GET', url, true);
+        xhr.setRequestHeader("Accept", "application/json");
         xhr.onreadystatechange = processRequest;
         function processRequest(e) {
             if (xhr.readyState == 4 && xhr.status == 200) {
