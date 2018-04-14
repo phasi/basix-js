@@ -195,36 +195,36 @@ basixJS.prototype.changeVisibility = function(id) {
 
 /** Events */
 
-// addEventListener(id, event, CustomFunction, useCapture) (if id is "$doc" then addEventListener to whole document)
-basixJS.prototype.addEventListener = function(id, event, CustomFunction, useCapture) {
+// addEventListener(id, event, callback, useCapture) (if id is "$doc" then addEventListener to whole document)
+basixJS.prototype.addEventListener = function(id, event, callback, useCapture) {
     if (id != "$doc" && (useCapture == undefined || useCapture == null || useCapture == ""))
     {
-        this.getID(id).addEventListener(event, CustomFunction);
+        this.getID(id).addEventListener(event, callback);
     }
     else if (id == "$doc" && (useCapture == undefined || useCapture == null || useCapture == ""))
     {
-        document.addEventListener(event, CustomFunction);
+        document.addEventListener(event, callback);
     }
     else if (id == "$doc" && useCapture != null) 
     {
-        document.addEventListener(event, CustomFunction, useCapture);
+        document.addEventListener(event, callback, useCapture);
     }
     else
     {
-        this.getID(id).addEventListener(event, CustomFunction, useCapture);
+        this.getID(id).addEventListener(event, callback, useCapture);
     } 
 }
 
-// removeEventListener(id, event, CustomFunction)
-basixJS.prototype.removeEventListener = function(id, event, CustomFunction, useCapture) {
+// removeEventListener(id, event, callback)
+basixJS.prototype.removeEventListener = function(id, event, callback, useCapture) {
     if (useCapture == undefined && id != "$doc") {
-        this.getID(id).removeEventListener(event, CustomFunction);
+        this.getID(id).removeEventListener(event, callback);
     } else if (useCapture != undefined && id != "$doc") {
-        this.getID(id).removeEventListener(event, CustomFunction, useCapture);
+        this.getID(id).removeEventListener(event, callback, useCapture);
     } else if (useCapture == undefined && id == "$doc") {
-        document.removeEventListener(event, CustomFunction);
+        document.removeEventListener(event, callback);
     } else if (useCapture != undefined && id == "$doc") {
-        document.removeEventListener(event, CustomFunction, useCapture);
+        document.removeEventListener(event, callback, useCapture);
     }
 }
 
